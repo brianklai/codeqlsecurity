@@ -1,14 +1,14 @@
 name: CodeQL_AIO_Larger_Runner_Example.yml 
 on:
-  #push:
-   # branches: [ main ]
+  push:
+    branches: [ main ]
 
   pull_request:
     branches: [main]
 
 jobs:
   Container_Example01_JavaScript:
-    runs-on: GitHub_Jack_PowerRunner
+    runs-on: ubuntu-latest
     permissions:
       actions: read
       contents: read
@@ -19,21 +19,12 @@ jobs:
       matrix:
         language: [javascript]
 
-    container:
-      image: node:18
-      options: --cpus 5 --user root
-
-
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set safe directory
-        run: |
-          git config --global --add safe.directory /__w/CodeQL_containerizedApp/CodeQL_containerizedApp/
-
-        # Initializes the CodeQL tools for scanning.
+     # Initializes the CodeQL tools for scanning.
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
         with:
@@ -47,7 +38,7 @@ jobs:
             # queries: security-extended,security-and-quality
 
       - name: NPM Installation
-        working-directory: /__w/CodeQL_containerizedApp/CodeQL_containerizedApp/Example01_JavaScript/
+        working-directory: /Example01_JavaScript/
         run: |
           npm i -g typescript ts-node && \
           npm install --omit=dev --unsafe-perm && \
@@ -68,7 +59,7 @@ jobs:
 
   Container_Example02_Java:
     needs: Container_Example01_JavaScript
-    runs-on: GitHub_Jack_PowerRunner
+    runs-on: Ubuntu-latest
     permissions:
       actions: read
       contents: read
@@ -87,16 +78,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set safe directory
-        run: |
-          git config --global --add safe.directory /__w/CodeQL_containerizedApp/CodeQL_containerizedApp/
-
       - name: Install dependencies
-        working-directory: /__w/CodeQL_containerizedApp/CodeQL_containerizedApp/Example02_Java/
+        working-directory: /Example02_Java/
         run: |
           apt-get update && \
           apt-get install build-essential maven default-jdk cowsay netcat -y && \
           update-alternatives --config javac
+          
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
@@ -104,7 +92,7 @@ jobs:
           languages: ${{ matrix.language }}
 
       - name: Build with Maven
-        working-directory: /__w/CodeQL_containerizedApp/CodeQL_containerizedApp/Example02_Java/
+        working-directory: /Example02_Java/
         run: |
           mvn -B package --file pom.xml
 
@@ -113,7 +101,7 @@ jobs:
 
   Container_Example03_Csharp:
     needs: [Container_Example01_JavaScript, Container_Example02_Java]
-    runs-on: GitHub_Jack_PowerRunner
+    runs-on: windows-latest
     permissions:
       actions: read
       contents: read
@@ -124,9 +112,6 @@ jobs:
       matrix:
         language: [csharp]
 
-    container:
-      image: mcr.microsoft.com/dotnet/aspnet:7.0
-      options: --cpus 5
 
     steps:
       - name: Checkout repository
@@ -149,7 +134,7 @@ jobs:
           dotnet-version: 7.0.x
 
       - name: Build with dotnet
-        working-directory: /__w/CodeQL_containerizedApp/CodeQL_containerizedApp/Example03_Csharp/WebGoatCore/
+        working-directory: /Example03_Csharp/WebGoatCore/
         run: dotnet build WebGoatCore.csproj
 
       # - name: Autobuild
@@ -160,7 +145,7 @@ jobs:
         
   Container_Example04_DockerBuild_and_Scan:
     needs: [Container_Example01_JavaScript, Container_Example02_Java, Container_Example03_Csharp]
-    runs-on: GitHub_Jack_PowerRunner
+    runs-on: ubuntu-latest
     permissions:
       actions: read
       contents: read
@@ -171,22 +156,10 @@ jobs:
       matrix:
         language: [ 'python' ]
     
-    container:
-        image: jkafaty/codeql-dockerapp-example
-        options: --cpus 5 --user root
-    
     steps:   
     
       - name: Checkout repository
-        uses: actions/checkout@v3
-          
-      - name: Fix permissions and Install Python3
-        run: |
-         chown root:root -R /github/home/ && \
-         chmod 777 -R /github/home/ && \
-         chown root:root -R /__w/_actions/github/codeql-action/ && \
-         chmod 777 -R /__w/_actions/github/codeql-action/ && \
-         apt-get update && apt-get install -y python3 python3-pip
+        uses: actions/checkout@v3   
     
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
