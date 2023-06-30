@@ -118,19 +118,13 @@ jobs:
         with:
           languages: ${{ matrix.language }}
 
-      - name: Install dependencies
-        run: |
-          apt-get update && apt-get upgrade -y --no-install-recommends && \
-          apt-get install -y wget && \
-          apt-get install -y curl
-
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 7.0.x
 
       - name: Build with dotnet
-        working-directory: /home/runner/work/CodeQL_containerizedApp/CodeQL_containerizedApp/Example03_Csharp/WebGoatCore/
+        working-directory: D:\a\CodeQL_containerizedApp\CodeQL_containerizedApp\Example03_Csharp\WebGoatCore\
         run: dotnet build WebGoatCore.csproj
 
       # - name: Autobuild
