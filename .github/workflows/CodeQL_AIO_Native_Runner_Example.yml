@@ -1,4 +1,4 @@
-name: CodeQL_AIO_Larger_Runner_Example.yml 
+name: CodeQL_AIO_Native_Runner_Example.yml 
 on:
   push:
     branches: [ main ]
@@ -38,7 +38,7 @@ jobs:
             # queries: security-extended,security-and-quality
 
       - name: NPM Installation
-        working-directory: /Example01_JavaScript/
+        working-directory: /home/runner/work/CodeQL_containerizedApp/CodeQL_containerizedApp/Example01_JavaScript/
         run: |
           npm i -g typescript ts-node && \
           npm install --omit=dev --unsafe-perm && \
@@ -79,7 +79,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install dependencies
-        working-directory: /Example02_Java/
+        working-directory: /home/runner/work/CodeQL_containerizedApp/CodeQL_containerizedApp/Example02_Java/
         run: |
           apt-get update && \
           apt-get install build-essential maven default-jdk cowsay netcat -y && \
@@ -92,7 +92,7 @@ jobs:
           languages: ${{ matrix.language }}
 
       - name: Build with Maven
-        working-directory: /Example02_Java/
+        working-directory: /home/runner/work/CodeQL_containerizedApp/CodeQL_containerizedApp/Example02_Java/
         run: |
           mvn -B package --file pom.xml
 
@@ -134,7 +134,7 @@ jobs:
           dotnet-version: 7.0.x
 
       - name: Build with dotnet
-        working-directory: /Example03_Csharp/WebGoatCore/
+        working-directory: /home/runner/work/CodeQL_containerizedApp/CodeQL_containerizedApp/Example03_Csharp/WebGoatCore/
         run: dotnet build WebGoatCore.csproj
 
       # - name: Autobuild
