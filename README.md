@@ -113,7 +113,7 @@ When your workflow runs, GitHub Actions will start a container using the specifi
 |Example01_JavaScript | JavaScript          | 5 Minutes and 10 Seconds   | 
 |Example01_Java       | Java                | 2 Minutes and 04 seconds   | 
 |Example01_C#         | C#                  | 7 Minutes and 47 Seconds   |
-|Example01_Python     | Python               | 4 Minutes and 39 Seconds   | 
+|Example01_Python     | Python               | 1 Minute 9 Seconds   | 
 
 
 
