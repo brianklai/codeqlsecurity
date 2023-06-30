@@ -1,9 +1,9 @@
 name: CodeQL_AIO_Native_Runner_Example.yml 
 on:
-  push:
-    branches: [ main ]
+   push:
+     branches: [ main ]
 
-  pull_request:
+   pull_request:
     branches: [main]
 
 jobs:
@@ -78,7 +78,7 @@ jobs:
 
   Example03_Csharp:
     needs: [Example01_JavaScript, Example02_Java]
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     permissions:
       actions: read
       contents: read
@@ -94,22 +94,25 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v2
-        with:
-          languages: ${{ matrix.language }}
-
+      - name: Install dependencies
+        run: |
+          sudo apt-get install -y wget && \
+          sudo apt-get install -y curl
+          
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 7.0.x
 
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: ${{ matrix.language }}
+
       - name: Build with dotnet
-        working-directory: D:\a\CodeQL_containerizedApp\CodeQL_containerizedApp\Example03_Csharp\WebGoatCore\
+        working-directory: /home/runner/work/CodeQL_containerizedApp/CodeQL_containerizedApp/Example03_Csharp/WebGoatCore/
         run: dotnet build WebGoatCore.csproj
 
-      # - name: Autobuild
-      #   uses: github/codeql-action/autobuild@v2
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2

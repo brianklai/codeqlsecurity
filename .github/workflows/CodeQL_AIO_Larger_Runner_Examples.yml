@@ -8,7 +8,7 @@ on:
 
 jobs:
   Container_Example01_JavaScript:
-    runs-on: GitHub_Jack_PowerRunner
+    runs-on: [Larger_Runner_Example]
     permissions:
       actions: read
       contents: read
@@ -68,7 +68,7 @@ jobs:
 
   Container_Example02_Java:
     needs: Container_Example01_JavaScript
-    runs-on: GitHub_Jack_PowerRunner
+    runs-on: [Larger_Runner_Example]
     permissions:
       actions: read
       contents: read
@@ -113,7 +113,7 @@ jobs:
 
   Container_Example03_Csharp:
     needs: [Container_Example01_JavaScript, Container_Example02_Java]
-    runs-on: GitHub_Jack_PowerRunner
+    runs-on: [Larger_Runner_Example]
     permissions:
       actions: read
       contents: read
@@ -160,7 +160,7 @@ jobs:
         
   Container_Example04_DockerBuild_and_Scan:
     needs: [Container_Example01_JavaScript, Container_Example02_Java, Container_Example03_Csharp]
-    runs-on: GitHub_Jack_PowerRunner
+    runs-on: [Larger_Runner_Example]
     permissions:
       actions: read
       contents: read
