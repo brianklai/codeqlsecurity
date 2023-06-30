@@ -22,7 +22,7 @@ jobs:
     container:
       image: node:18
       options: |
-       --cpu 5 
+       --cpus 5 
 
 
     steps:
@@ -81,7 +81,7 @@ jobs:
 
     container:
       image: openjdk:8
-      options: --cpu 5
+      options: --cpus 5
 
     steps:
       - name: Checkout repository
@@ -126,7 +126,7 @@ jobs:
 
     container:
       image: mcr.microsoft.com/dotnet/aspnet:7.0
-      options: --cpu 5
+      options: --cpus 5
 
     steps:
       - name: Checkout repository
@@ -173,7 +173,7 @@ jobs:
     
     container:
         image: jkafaty/codeql-dockerapp-example
-        options: --cpu 5
+        options: --cpus 5
     
     steps:   
     
