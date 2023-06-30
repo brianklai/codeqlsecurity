@@ -77,8 +77,8 @@ jobs:
       - name: Install dependencies
         working-directory: /home/runner/work/CodeQL_containerizedApp/CodeQL_containerizedApp/Example02_Java/
         run: |
-          apt-get update && \
           apt-get install build-essential maven default-jdk cowsay netcat -y && \
+          apt-get install -y openjdk-8-jdk && \
           update-alternatives --config javac
           
 
