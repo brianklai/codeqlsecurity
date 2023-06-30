@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  Container_Example01_JavaScript:
+  Example01_JavaScript:
     runs-on: ubuntu-latest
     permissions:
       actions: read
@@ -57,8 +57,8 @@ jobs:
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
 
-  Container_Example02_Java:
-    needs: Container_Example01_JavaScript
+  Example02_Java:
+    needs: Example01_JavaScript
     runs-on: Ubuntu-latest
     permissions:
       actions: read
@@ -69,10 +69,6 @@ jobs:
       fail-fast: false
       matrix:
         language: [Java]
-
-    container:
-      image: openjdk:8
-      options: --cpus 5 --user root
 
     steps:
       - name: Checkout repository
@@ -99,8 +95,8 @@ jobs:
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
 
-  Container_Example03_Csharp:
-    needs: [Container_Example01_JavaScript, Container_Example02_Java]
+  Example03_Csharp:
+    needs: [Example01_JavaScript, Example02_Java]
     runs-on: windows-latest
     permissions:
       actions: read
@@ -143,8 +139,8 @@ jobs:
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
         
-  Container_Example04_DockerBuild_and_Scan:
-    needs: [Container_Example01_JavaScript, Container_Example02_Java, Container_Example03_Csharp]
+  Example04_Python:
+    needs: [Example01_JavaScript, Example02_Java, Example03_Csharp]
     runs-on: ubuntu-latest
     permissions:
       actions: read
