@@ -1,16 +1,16 @@
 name: CodeQL Example04 Direct Dockerpull and Scan
 
 on:
-    push:
-      branches: [ main ]
-
-   # pull_request:
+    # push:
     #  branches: [ main ]
+
+    pull_request:
+      branches: [ main ]
     
 jobs:
  Container_Example04_DockerBuild_and_Scan:
     name: Analyze
-    runs-on: 'GitHub_Jack_PowerRunner'
+    runs-on: 'Ubuntu-latest'
     permissions:
       actions: read
       contents: read

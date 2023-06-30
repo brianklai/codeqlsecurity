@@ -1,15 +1,14 @@
 name: CodeQL Example01 JavaScript
 
 on:
-  push:
-    branches: ["main"]
+  # push:
+  #  branches: [ main ]
 
- # pull_request:
-  #  branches: ["main"]
-
+  pull_request:
+    branches: [ main ]
 jobs:
    Container_Example01_JavaScript:
-    runs-on: "GitHub_Jack_PowerRunner"
+    runs-on: 'Ubuntu-latest'
     permissions:
       actions: read
       contents: read
@@ -22,7 +21,7 @@ jobs:
 
     container:
       image: node:18
-      options: --cpus 5 --user root
+      options: --user root
 
     steps:
       - name: Checkout repository

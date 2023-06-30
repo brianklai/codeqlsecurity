@@ -1,14 +1,15 @@
 name: CodeQL Example03 Csharp
 
 on:
-  push:
-    branches: [ main ]
- # pull_request:
+  # push:
   #  branches: [ main ]
+
+  pull_request:
+    branches: [ main ]
 
 jobs:
   Container_Example03_Csharp:
-    runs-on: 'GitHub_Jack_PowerRunner'
+    runs-on: 'Ubuntu-latest'
     permissions:
       actions: read
       contents: read
@@ -21,7 +22,7 @@ jobs:
 
     container:
       image: mcr.microsoft.com/dotnet/aspnet:7.0
-      options: --cpus 5
+      #options: --cpu 2
 
     steps:
       - name: Checkout repository
