@@ -91,7 +91,9 @@ When your workflow runs, GitHub Actions will start a container using the specifi
 |Example01_C#         | C#                   | 7 Minutes and 47 Seconds   |
 |Example01_Python     | Python               | 4 Minutes and 39 Seconds   | 
 
-> #### CodeQL code scanning for containerized applications using [GitHub Larger Runners]([https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners](https://docs.github.com/en/enterprise-cloud@latest/actions/using-github-hosted-runners/about-larger-runners))
+***
+
+> #### CodeQL code scanning for containerized applications using [GitHub Larger Runners](https://docs.github.com/en/enterprise-cloud@latest/actions/using-github-hosted-runners/about-larger-runners)
 
 | Example             | Programming Language| Scan completion Time |
 |---------------------|-------------------- |---------------------- |                
@@ -100,11 +102,17 @@ When your workflow runs, GitHub Actions will start a container using the specifi
 |Example01_C#         | C#                  | 3 Minutes and 59 Seconds   |
 |Example01_Python     | Python              | 2 Minutes and 24 Seconds   | 
 
- ##### Larger Runner Specs  and  Resources Assigned to the container for each example:
-| CPU Cores | RAM | Storage | Base OS     |   | CPU | RAM              | Storage         | Base OS                                    |     
-|-----------|-----|---------|---------    |---|-----|------------------|-----------------|------------------------------------------- | 
-|8 cores    |32GB  |300 SSD  |Ubuntu 22.04|   |   5  |Container Default|Container Default|Review example workflows for container image |
+ ##### Larger Runner Specs:
+| CPU Cores | RAM | Storage | Base OS     |
+|-----------|-----|---------|---------    |
+|8 cores    |32GB  |300 SSD  |Ubuntu 22.04| 
 
+##### Resources Assigned to the container for each example:
+| CPU | RAM               | Storage         | Base OS                                 | 
+|-----|------------------|-----------------|------------------------------------------| 
+|5  |Container Default|Container Default|Review example workflows for container image |
+
+***
 
 > #### CodeQL code scanning for containerized applications - Coverting the application to run natively within a GitHub default Runner rather than within the container.
 

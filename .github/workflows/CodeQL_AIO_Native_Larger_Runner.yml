@@ -1,4 +1,4 @@
-name: CodeQL_AIO_Native_Runner_Example.yml 
+name: CodeQL_AIO_Native_Larger_Runner_Example.yml 
 on:
   push:
     branches: [ main ]
@@ -8,7 +8,7 @@ on:
 
 jobs:
   Example01_JavaScript:
-    runs-on: ubuntu-latest
+    runs-on: GitHub_Jack_PowerRunner
     defaults:
       run:
         working-directory: /home/runner/work/CodeQL_containerizedApp/CodeQL_containerizedApp/Example01_JavaScript/
@@ -44,7 +44,7 @@ jobs:
 
   Example02_Java:
     needs: Example01_JavaScript
-    runs-on: Ubuntu-latest
+    runs-on: GitHub_Jack_PowerRunner
     permissions:
       actions: read
       contents: read
@@ -66,6 +66,7 @@ jobs:
           sudo apt-get install -y openjdk-8-jdk && \
           sudo update-alternatives --config javac
           
+
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
         with:
@@ -75,12 +76,13 @@ jobs:
         working-directory: /home/runner/work/CodeQL_containerizedApp/CodeQL_containerizedApp/Example02_Java/
         run: |
           mvn -B package --file pom.xml
+
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
 
   Example03_Csharp:
     needs: [Example01_JavaScript, Example02_Java]
-    runs-on: windows-latest
+    runs-on: windows-2022-16core
     permissions:
       actions: read
       contents: read
@@ -118,7 +120,7 @@ jobs:
         
   Example04_Python:
     needs: [Example01_JavaScript, Example02_Java, Example03_Csharp]
-    runs-on: ubuntu-latest
+    runs-on: GitHub_Jack_PowerRunner
     permissions:
       actions: read
       contents: read
@@ -144,3 +146,4 @@ jobs:
     
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
+    
