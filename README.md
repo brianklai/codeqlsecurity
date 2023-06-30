@@ -90,9 +90,9 @@ When your workflow runs, GitHub Actions will start a container using the specifi
 | Example              | Programming Language | Scan completion Time     |
 | -------------------- | -------------------- | ------------------------ |
 | Example01_JavaScript | JavaScript           | 4 Minutes and 49 Seconds |
-| Example01_Java       | Java                 | 2 Minutes and 34 seconds |
-| Example01_C#         | C#                   | 7 Minutes and 47 Seconds |
-| Example01_Python     | Python               | 4 Minutes and 39 Seconds |
+| Example02_Java       | Java                 | 2 Minutes and 34 seconds |
+| Example03_C#         | C#                   | 7 Minutes and 47 Seconds |
+| Example04_Python     | Python               | 4 Minutes and 39 Seconds |
 
 ---
 
@@ -101,9 +101,9 @@ When your workflow runs, GitHub Actions will start a container using the specifi
 | Example              | Programming Language | Scan completion Time     |
 | -------------------- | -------------------- | ------------------------ |
 | Example01_JavaScript | JavaScript           | 3 Minutes 49 Seconds     |
-| Example01_Java       | Java                 | 1 Minute 58 Seconds      |
-| Example01_C#         | C#                   | 3 Minutes and 59 Seconds |
-| Example01_Python     | Python               | 2 Minutes and 24 Seconds |
+| Example02_Java       | Java                 | 1 Minute 58 Seconds      |
+| Example03_C#         | C#                   | 3 Minutes and 59 Seconds |
+| Example04_Python     | Python               | 2 Minutes and 24 Seconds |
 
 ##### Larger Runner Specs:
 
@@ -124,9 +124,9 @@ When your workflow runs, GitHub Actions will start a container using the specifi
 | Example              | Programming Language | Scan completion Time     |
 | -------------------- | -------------------- | ------------------------ |
 | Example01_JavaScript | JavaScript           | 2 Minutes and 23 Seconds |
-| Example01_Java       | Java                 | 1 Minutes and 53 seconds |
-| Example01_C#         | C#                   | 6 Minutes and 9 Seconds |
-| Example01_Python     | Python               | 2 Minute 13 Seconds       |
+| Example02_Java       | Java                 | 1 Minutes and 53 seconds |
+| Example03_C#         | C#                   | 6 Minutes and 9 Seconds |
+| Example04_Python     | Python               | 2 Minute 13 Seconds       |
 
 
 ---
@@ -136,9 +136,9 @@ When your workflow runs, GitHub Actions will start a container using the specifi
 | Example              | Programming Language | Scan completion Time     |
 | -------------------- | -------------------- | ------------------------ |
 | Example01_JavaScript | JavaScript           | 1 Minutes and 32 Seconds |
-| Example01_Java       | Java                 | 2 Minutes and 36 seconds |
-| Example01_C#         | C#                   | 3 Minutes and 16 Seconds |
-| Example01_Python     | Python               | 57 Seconds       |
+| Example02_Java       | Java                 | 2 Minutes and 36 seconds |
+| Example03_C#         | C#                   | 3 Minutes and 16 Seconds |
+| Example04_Python     | Python               | 57 Seconds       |
 
 
 ##### Larger Runner Specs:
