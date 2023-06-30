@@ -21,8 +21,8 @@ jobs:
 
     container:
       image: node:18
-      options: |
-       --cpus 5 
+      options: --cpus 5 --user root
+
 
 
     steps:
@@ -81,7 +81,7 @@ jobs:
 
     container:
       image: openjdk:8
-      options: --cpus 5
+      options: --cpus 5 --user root
 
     steps:
       - name: Checkout repository
@@ -173,7 +173,7 @@ jobs:
     
     container:
         image: jkafaty/codeql-dockerapp-example
-        options: --cpus 5
+        options: --cpus 5 --user root
     
     steps:   
     
