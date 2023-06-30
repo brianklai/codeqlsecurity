@@ -81,6 +81,42 @@ When your workflow runs, GitHub Actions will start a container using the specifi
 - [Running Jobs in a Container](https://docs.github.com/en/actions/using-jobs/running-jobs-in-a-container)
 
 
+### Benchmarks based on the examples within this repo
+> #### CodeQL code scanning for containerized applications using [GitHub Default Runners](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners)
+
+| Example              | Programming Language| Scan completion Time             |
+|---------------------|--------------------  |---------------------------------- |                
+|Example01_JavaScript | JavaScript           | 4 Minutes and 49 Seconds   | 
+|Example01_Java       | Java                 | 2 Minutes and 34 seconds   | 
+|Example01_C#         | C#                   | 7 Minutes and 47 Seconds   |
+|Example01_Python     | Python               | 4 Minutes and 39 Seconds   | 
+
+> #### CodeQL code scanning for containerized applications using [GitHub Larger Runners]([https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners](https://docs.github.com/en/enterprise-cloud@latest/actions/using-github-hosted-runners/about-larger-runners))
+
+| Example             | Programming Language| Scan completion Time |
+|---------------------|-------------------- |---------------------- |                
+|Example01_JavaScript | JavaScript          | 3 Minutes 49 Seconds   | 
+|Example01_Java       | Java                | 1 Minute 58 Seconds   | 
+|Example01_C#         | C#                  | 3 Minutes and 59 Seconds   |
+|Example01_Python     | Python              | 2 Minutes and 24 Seconds   | 
+
+ ##### Larger Runner Specs  and  Resources Assigned to the container for each example:
+| CPU Cores | RAM | Storage | Base OS     |   | CPU | RAM              | Storage         | Base OS                                    |     
+|-----------|-----|---------|---------    |---|-----|------------------|-----------------|------------------------------------------- | 
+|8 cores    |32GB  |300 SSD  |Ubuntu 22.04|   |   5  |Container Default|Container Default|Review example workflows for container image |
+
+
+> #### CodeQL code scanning for containerized applications - Coverting the application to run natively within a GitHub default Runner rather than within the container.
+
+| Example | Programming Language| Scan completion Time             |
+|---------------------|-------------------- |---------------------- |                
+|Example01_JavaScript | JavaScript          | 5 Minutes and 10 Seconds   | 
+|Example01_Java       | Java                | 2 Minutes and 04 seconds   | 
+|Example01_C#         | C#                  | 7 Minutes and 47 Seconds   |
+|Example01_Python     | Python               | 4 Minutes and 39 Seconds   | 
+
+
+
 ### Considerations when using CodeQL to scan containerized applications
 Running a GitHub Action in a container can have both positive and negative performance impacts compared to running the action on the base runner.
 

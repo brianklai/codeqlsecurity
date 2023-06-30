@@ -58,7 +58,6 @@ jobs:
         uses: github/codeql-action/analyze@v2
 
   Example02_Java:
-    needs: Example01_JavaScript
     runs-on: Ubuntu-latest
     permissions:
       actions: read
@@ -96,7 +95,6 @@ jobs:
         uses: github/codeql-action/analyze@v2
 
   Example03_Csharp:
-    needs: [Example01_JavaScript, Example02_Java]
     runs-on: windows-latest
     permissions:
       actions: read
@@ -134,7 +132,6 @@ jobs:
         uses: github/codeql-action/analyze@v2
         
   Example04_Python:
-    needs: [Example01_JavaScript, Example02_Java, Example03_Csharp]
     runs-on: ubuntu-latest
     permissions:
       actions: read
