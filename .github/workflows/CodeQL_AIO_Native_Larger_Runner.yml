@@ -1,7 +1,7 @@
 name: CodeQL_AIO_Native_Larger_Runner_Example.yml
 on:
-  push:
-   branches: [ main ]
+  # push:
+   # branches: [ main ]
 
   pull_request:
     branches: [main]
@@ -9,7 +9,7 @@ on:
 
 jobs:
   Example01_JavaScript:
-    runs-on: GitHub_Jack_PowerRunner
+    runs-on: [Larger_Runner_Example]
     defaults:
       run:
         working-directory: /home/runner/work/CodeQL_containerizedApp/CodeQL_containerizedApp/Example01_JavaScript/
@@ -41,7 +41,7 @@ jobs:
 
   Example02_Java:
     needs: Example01_JavaScript
-    runs-on: GitHub_Jack_PowerRunner
+    runs-on: [Larger_Runner_Example]
     permissions:
       actions: read
       contents: read
@@ -78,7 +78,7 @@ jobs:
 
   Example03_Csharp:
     needs: [Example01_JavaScript, Example02_Java]
-    runs-on: GitHub_Jack_PowerRunner
+    runs-on: [Larger_Runner_Example]
     permissions:
       actions: read
       contents: read
@@ -120,7 +120,7 @@ jobs:
 
   Example04_Python:
     needs: [Example01_JavaScript, Example02_Java, Example03_Csharp]
-    runs-on: GitHub_Jack_PowerRunner
+    runs-on: [Larger_Runner_Example]
     permissions:
       actions: read
       contents: read

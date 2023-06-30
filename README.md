@@ -123,10 +123,10 @@ When your workflow runs, GitHub Actions will start a container using the specifi
 
 | Example              | Programming Language | Scan completion Time     |
 | -------------------- | -------------------- | ------------------------ |
-| Example01_JavaScript | JavaScript           | 2 Minutes and 16 Seconds |
+| Example01_JavaScript | JavaScript           | 2 Minutes and 23 Seconds |
 | Example01_Java       | Java                 | 1 Minutes and 53 seconds |
-| Example01_C#         | C#                   | 3 Minutes and 23 Seconds |
-| Example01_Python     | Python               | 1 Minute 9 Seconds       |
+| Example01_C#         | C#                   | 6 Minutes and 9 Seconds |
+| Example01_Python     | Python               | 2 Minute 13 Seconds       |
 
 
 ---
@@ -135,17 +135,17 @@ When your workflow runs, GitHub Actions will start a container using the specifi
 
 | Example              | Programming Language | Scan completion Time     |
 | -------------------- | -------------------- | ------------------------ |
-| Example01_JavaScript | JavaScript           | 1 Minutes and 35 Seconds |
-| Example01_Java       | Java                 | 1 Minutes and 54 seconds |
-| Example01_C#         | C#                   | 3 Minutes and 23 Seconds |
-| Example01_Python     | Python               | 1 Minute 4 Seconds       |
+| Example01_JavaScript | JavaScript           | 1 Minutes and 32 Seconds |
+| Example01_Java       | Java                 | 2 Minutes and 36 seconds |
+| Example01_C#         | C#                   | 3 Minutes and 16 Seconds |
+| Example01_Python     | Python               | 57 Seconds       |
 
 
 ##### Larger Runner Specs:
 
 | CPU Cores | RAM  | Storage | Base OS      |
 | --------- | ---- | ------- | ------------ |
-| 8 cores   | 32GB | 300 SSD | Ubuntu 22.04 & Windows 2019 for C# |
+| 8 cores   | 32GB | 300 SSD | Ubuntu 22.04  |
 
 
 ---
