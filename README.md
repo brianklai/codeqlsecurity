@@ -14,10 +14,11 @@
 > **Warning** : CodeQL - code scanning requirements & support when using containers
 
 - You must use a [supported platform/image](https://codeql.github.com/docs/codeql-overview/system-requirements/) and ensure you met the [additional software requirements](https://codeql.github.com/docs/codeql-overview/system-requirements/#additional-software-requirements).
-- For compiled langauges (C/C++, C#, GO, Java, etc) you must ensure that the system can successfully **build and compile your code**, independently of CodeQL
+- For compiled languages (C/C++, C#, GO, Java, etc) you must ensure that the system can successfully **build and compile your code**, independently of CodeQL
 - musl-c-based Linux distributions, such as Alpine Linux, **are not supported**. _For such you will need to switch to a glibc-based system such as Debian. This is only for the Docker images used for CodeQL analysis which will need to be updated, images used for deployments or non-CodeQL CI steps can continue to use Alpine_
 
-GitHub Actions can work with containers by allowing you to specify a container image to run your workflow/steps in. This can be useful for running your workflow in an isolated environment with specific dependencies or configurations. The container image you choose can be either a base-template or a customized image depending on your requirements.
+GitHub Actions can work with containers by allowing you to specify a container image to run your workflow/steps in. This can be useful for running your workflow in an isolated environment with specific dependencies or configurations. The container image you choose can be either a base-template or a customized image depending on your requiremen![image](https://github.com/octodemo/CodeQL_containerizedApp/assets/50452463/8bbccef0-3338-411a-94b1-f70da16becef)
+ts.
 
 To use a container in your workflow, you will need to specify the container key in your job definition. This key allows you to specify the image to use, as well as any additional options such as environment variables or volumes to mount.
 
@@ -98,7 +99,7 @@ When your workflow runs, GitHub Actions will start a container using the specifi
 
 > #### CodeQL code scanning for containerized applications using [GitHub Larger Runners](https://docs.github.com/en/enterprise-cloud@latest/actions/using-github-hosted-runners/about-larger-runners)
 
-| Example              | Programming Language | Scan completion Time     |
+| Example              | Programming ![image](https://github.com/octodemo/CodeQL_containerizedApp/assets/50452463/308efb6f-6eb7-4b00-9157-d1f0e96bdd66) | Scan completion Time     |
 | -------------------- | -------------------- | ------------------------ |
 | Example01_JavaScript | JavaScript           | 3 Minutes 49 Seconds     |
 | Example02_Java       | Java                 | 1 Minute 58 Seconds      |
@@ -119,7 +120,7 @@ When your workflow runs, GitHub Actions will start a container using the specifi
 
 ---
 
-> #### CodeQL code scanning for containerized applications - Coverting the application to run natively within a < GitHub DEFAULT Runner> rather than within the container.
+> #### CodeQL code scanning for containerized applications - Converting the application to run natively within a < GitHub DEFAULT Runner> rather than within the container.
 
 | Example              | Programming Language | Scan completion Time     |
 | -------------------- | -------------------- | ------------------------ |
@@ -131,7 +132,7 @@ When your workflow runs, GitHub Actions will start a container using the specifi
 
 ---
 
-> #### CodeQL code scanning for containerized applications - Coverting the application to run natively within a < GitHub Larger Runner > rather than within the container.
+> #### CodeQL code scanning for containerized applications - Converting the application to run natively within a < GitHub Larger Runner > rather than within the container.
 
 | Example              | Programming Language | Scan completion Time     |
 | -------------------- | -------------------- | ------------------------ |
@@ -159,7 +160,7 @@ Running a GitHub Action in a container can have both positive and negative perfo
 | - Containers can be pre-built and cached, which can speed up the start time of the action.                                                                                                    | - You might need to increase the runners resources to improve the containers performance. This will increase usage and spending.                                                                         |
 |                                                                                                                                                                                               | - Additionally, if the container image is not optimized for the action being run, it may include unnecessary software or dependencies, which can slow down the action.                                   |
 
-### GitHub's Recommendedation
+### GitHub's Recommendation
 
 Running a GitHub Action inside the runner provided by GitHub can have several advantages over running the action inside a container inside the runner. Here are a few reasons why you might want to run your action inside the runner:
 
