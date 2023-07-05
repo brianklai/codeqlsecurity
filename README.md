@@ -98,7 +98,7 @@ When your workflow runs, GitHub Actions will start a container using the specifi
 
 > #### CodeQL code scanning for containerized applications using [GitHub Larger Runners](https://docs.github.com/en/enterprise-cloud@latest/actions/using-github-hosted-runners/about-larger-runners)
 
-| Example              | Programming          | Scan completion Time     |
+| Example              | Programming Language | Scan completion Time     |
 | -------------------- | -------------------- | ------------------------ |
 | Example01_JavaScript | JavaScript           | 3 Minutes 49 Seconds     |
 | Example02_Java       | Java                 | 1 Minute 58 Seconds      |
