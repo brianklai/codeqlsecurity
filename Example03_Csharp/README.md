@@ -24,6 +24,3 @@ RUNNING!
 ## Requirements
 - .NET 7 SDK
 
-## GitHub Codespaces
-This application has a GitHub Codespace configuration that will allow you to run a Codespace and debug the application if you are demoing in GitHub.
-
