@@ -1,6 +1,6 @@
 ## GitHub Advanced Security - CodeQL Code Scanning within a Container.
 
-> **Note**: This repository serves as an exemplary resource demonstrating how to set up CodeQL to scan containerized applications for vulnerabilities. Its primary objective is to showcase the implementation of CodeQL in the code scanning process.
+> **Note**: This repository serves as an exemplary resource demonstrating how to set up CodeQL to scan containerized applications for vulnerabilities. Its primary objective is to showcase the implementation of CodeQL in the code-scanning process.
 
 ### Getting Started
 
@@ -17,7 +17,7 @@
 - For compiled languages (C/C++, C#, GO, Java, etc) you must ensure that the system can successfully **build and compile your code**, independently of CodeQL
 - musl-c-based Linux distributions, such as Alpine Linux, **are not supported**. _For such you will need to switch to a glibc-based system such as Debian. This is only for the Docker images used for CodeQL analysis which will need to be updated, images used for deployments or non-CodeQL CI steps can continue to use Alpine_
 
-GitHub Actions can work with containers by allowing you to specify a container image to run your workflow/steps in. This can be useful for running your workflow in an isolated environment with specific dependencies or configurations. The container image you choose can be either a base-template or a customized image depending on your requirements.
+GitHub Actions can work with containers by allowing you to specify a container image to run your workflow/steps. This can be useful for running your workflow in an isolated environment with specific dependencies or configurations. The container image you choose can be either a base template or a customized image depending on your requirements.
 
 To use a container in your workflow, you will need to specify the container key in your job definition. This key allows you to specify the image to use, as well as any additional options such as environment variables or volumes to mount.
 
