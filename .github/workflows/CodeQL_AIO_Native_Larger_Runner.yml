@@ -12,7 +12,7 @@ jobs:
     runs-on: [Larger_Runner_Example]
     defaults:
       run:
-        working-directory: /home/runner/work/CodeQL_containerizedApp/CodeQL_containerizedApp/Example01_JavaScript/
+        working-directory: /home/runner/work/codeqlsecurity/codeqlsecurity/Example01_JavaScript/
     permissions:
       actions: read
       contents: read
