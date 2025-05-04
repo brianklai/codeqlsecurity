@@ -88,7 +88,6 @@ jobs:
       - name: Set safe directory
         run: |
           git config --global --add safe.directory /__w/codeqlsecurity/codeqlsecurity/
-          git config --global --add safe.directory /__w/CodeQL_containerizedApp/CodeQL_containerizedApp/
 
       - name: Install dependencies
         working-directory: /__w/codeqlsecurity/codeqlsecurity/Example02_Java/
