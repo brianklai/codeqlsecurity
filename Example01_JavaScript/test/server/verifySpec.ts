@@ -308,20 +308,18 @@ describe('verify', () => {
         Header: { "alg": "HS256", "typ": "JWT" }
         Payload: { "data": { "email": "rsa_lord@" }, "iat": 1508639612, "exp": 9999999999 }
          */
-        const generateTestToken = () => {
-          const header = { typ: 'JWT', alg: 'HS256' }
-          const payload = { data: { email: 'rsa_lord@' }, iat: 1582221675 }
-          const headerBase64 = Buffer.from(JSON.stringify(header)).toString('base64').replace(/=/g, '')
-          const payloadBase64 = Buffer.from(JSON.stringify(payload)).toString('base64').replace(/=/g, '')
-          const signature = crypto.createHmac('sha256', security.publicKey)
-            .update(`${headerBase64}.${payloadBase64}`)
-            .digest('base64')
-            .replace(/=/g, '')
-            .replace(/\+/g, '-')
-            .replace(/\//g, '_')
-          return `${headerBase64}.${payloadBase64}.${signature}`
-        }
-        req.headers = { authorization: `Bearer ${generateTestToken()}` }
+        const header = { typ: 'JWT', alg: 'HS256' }
+        const payload = { data: { email: 'rsa_lord@' }, iat: 1582221675 }
+        const headerBase64 = Buffer.from(JSON.stringify(header)).toString('base64').replace(/=/g, '')
+        const payloadBase64 = Buffer.from(JSON.stringify(payload)).toString('base64').replace(/=/g, '')
+        const signature = crypto.createHmac('sha256', security.publicKey)
+          .update(`${headerBase64}.${payloadBase64}`)
+          .digest('base64')
+          .replace(/=/g, '')
+          .replace(/\+/g, '-')
+          .replace(/\//g, '_')
+        const token = `${headerBase64}.${payloadBase64}.${signature}`
+        req.headers = { authorization: `Bearer ${token}` }
 
         verify.jwtChallenges()(req, res, next)
 
