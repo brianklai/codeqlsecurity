@@ -1,9 +1,9 @@
 name: CodeQL_AIO_Native_Runner_Example.yml 
 on:
-  # push:
-   #  branches: [ main ]
+  push:
+    branches: [ main ]
 
-   pull_request:
+  pull_request:
     branches: [main]
 
 jobs:
@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: /home/runner/work/CodeQL_containerizedApp/CodeQL_containerizedApp/Example01_JavaScript/
+        working-directory: /home/runner/work/codeqlsecurity/codeqlsecurity/Example01_JavaScript/
     permissions:
       actions: read
       contents: read
@@ -28,16 +28,16 @@ jobs:
 
      # Initializes the CodeQL tools for scanning.
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v2
+        uses: github/codeql-action/init@v3
         with:
           languages:
             ${{ matrix.language }}
 
       - name: Autobuild
-        uses: github/codeql-action/autobuild@v2
+        uses: github/codeql-action/autobuild@v3
       
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v2     
+        uses: github/codeql-action/analyze@v3     
 
 
   Example02_Java:
@@ -58,23 +58,23 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install dependencies
-        working-directory: /home/runner/work/CodeQL_containerizedApp/CodeQL_containerizedApp/Example02_Java/
+        working-directory: /home/runner/work/codeqlsecurity/codeqlsecurity/Example02_Java/
         run: |
           sudo apt-get install build-essential maven default-jdk cowsay netcat -y && \
           sudo apt-get install -y openjdk-8-jdk && \
           sudo update-alternatives --config javac
           
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v2
+        uses: github/codeql-action/init@v3
         with:
           languages: ${{ matrix.language }}
 
       - name: Build with Maven
-        working-directory: /home/runner/work/CodeQL_containerizedApp/CodeQL_containerizedApp/Example02_Java/
+        working-directory: /home/runner/work/codeqlsecurity/codeqlsecurity/Example02_Java/
         run: |
           mvn -B package --file pom.xml
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v2
+        uses: github/codeql-action/analyze@v3
 
   Example03_Csharp:
     needs: [Example01_JavaScript, Example02_Java]
@@ -105,17 +105,17 @@ jobs:
           dotnet-version: 7.0.x
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v2
+        uses: github/codeql-action/init@v3
         with:
           languages: ${{ matrix.language }}
 
       - name: Build with dotnet
-        working-directory: /home/runner/work/CodeQL_containerizedApp/CodeQL_containerizedApp/Example03_Csharp/WebGoatCore/
+        working-directory: /home/runner/work/codeqlsecurity/codeqlsecurity/Example03_Csharp/WebGoatCore/
         run: dotnet build WebGoatCore.csproj
 
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v2
+        uses: github/codeql-action/analyze@v3
         
   Example04_Python:
     needs: [Example01_JavaScript, Example02_Java, Example03_Csharp]
@@ -136,12 +136,12 @@ jobs:
         uses: actions/checkout@v3   
     
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v2
+        uses: github/codeql-action/init@v3
         with:
            languages: ${{ matrix.language }}
              
       - name: Autobuild
-        uses: github/codeql-action/autobuild@v2
+        uses: github/codeql-action/autobuild@v3
     
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v2
+        uses: github/codeql-action/analyze@v3
